@@ -8,7 +8,12 @@
 <body>
     <?php
         // require('php_tests_1/json.php');
-        require('scores/scores.php');
+        // require('scores/scores.php');
     ?>
+    <hr>
+    <div id="test">hello</div>
+
+
+    <script type="text/javascript" src="js/scores.js"></script>
 </body>
 </html>

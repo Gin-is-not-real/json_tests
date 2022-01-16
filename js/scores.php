@@ -5,7 +5,9 @@
  * Si un score est déja inscrit pour le nom entré, on verifie si le score a besoin d'être mis a jour
  * Sinon on entre un nouveau joueur ainsi que son score dans le fichier json
  */
-$file_path = 'scores/scores.json';
+$file_path = '../scores/scores.json';
+$action_url = '../json_tests/js/scores.php';
+
 $content = file_get_contents($file_path);
 $decoded_content = json_decode($content);
 $message = 'enter your name and score';
@@ -22,6 +24,8 @@ $message = 'enter your name and score';
  */
 
 if(isset($_POST['name'])) {
+    $action_url = 'scores.php';
+
     $input_name = $_POST['name'];
     $input_score = $_POST['score'];
 
@@ -50,47 +54,20 @@ if(isset($_POST['name'])) {
     file_put_contents($file_path, json_encode($decoded_content));
     $decoded_content = json_decode(file_get_contents($file_path));
 }
-
-/*
-* on affiche la liste
-* on affiche le formulaire
-*/
-// echo '<ul>'; 
-// foreach ($decoded_content as $name => $scores) {
-//     echo '<li>' . $name . ' : ' . $scores->points .'</li>';
-// }
-// echo '</ul>';
-
-// echo '<form method="post" action="">
-//     <div>
-//         <label for="name">name: </label><input type="text" name="name" required></input>
-//         <label for="score">score: </label><input type="int" name="score" required></input>
-//         <input type="submit">
-//     </div>
-// </form>';
-
-// echo '<div>' . $message . '</div>';
-
-/*
-* on affiche la liste
-* on affiche le formulaire
-*/
 ?>
 
 <ul> 
-
 <?php
 foreach ($decoded_content as $name => $scores) {
     echo '<li>' . $name . ' : ' . $scores->points .'</li>';
 }
 ?>
-
 </ul>
 
-<form method="post" action="">
+<form method="post" action="<?= $action_url; ?>">
     <div>
         <label for="name">name: </label><input type="text" name="name" required></input>
-        <label for="score">score: </label><input type="int" name="score" required></input>
+        <label for="score">score: </label><input type="number" name="score" required></input>
         <input type="submit">
     </div>
 </form>
