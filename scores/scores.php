@@ -8,10 +8,10 @@
 $file_path = 'scores/scores.json';
 $content = file_get_contents($file_path);
 $decoded_content = json_decode($content);
+$message = 'enter your name and score';
 
 /**
  * si le formulaire n'as pas été validé:
- *      on recupere le json 
  *      on affiche la liste
  *      on affiche le formulaire
  * 
@@ -33,6 +33,10 @@ if(isset($_POST['name'])) {
 
             if($input_score > $player->points) {
                 $player->points = $input_score;
+                $message = 'score updated';
+            }
+            else {
+                $message = 'no record to write';
             }
         }
     }
@@ -64,3 +68,5 @@ echo '<form method="post" action="">
         <input type="submit">
     </div>
 </form>';
+
+echo '<div>' . $message . '</div>';
