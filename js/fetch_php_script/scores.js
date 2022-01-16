@@ -11,7 +11,7 @@ let divTest = document.querySelector('#test');
  */
 
 //recupere la liste et le formulaire et l'insere dans la div #test
-fetch('js/scores.php')
+fetch('js/fetch_php_script/scores.php')
 .then(response =>  response.text())
 .then(text => {
     console.log(text)

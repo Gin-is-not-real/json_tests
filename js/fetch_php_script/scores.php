@@ -5,8 +5,8 @@
  * Si un score est déja inscrit pour le nom entré, on verifie si le score a besoin d'être mis a jour
  * Sinon on entre un nouveau joueur ainsi que son score dans le fichier json
  */
-$file_path = '../scores/scores.json';
-$action_url = '../json_tests/js/scores.php';
+$file_path = '../../scores/scores.json';
+$action_url = '../json_tests/js/fetch_php_script/scores.php';
 
 $content = file_get_contents($file_path);
 $decoded_content = json_decode($content);

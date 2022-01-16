@@ -14,6 +14,7 @@
     <div id="test">hello</div>
 
 
-    <script type="text/javascript" src="js/scores.js"></script>
+    <script type="text/javascript" src="js/fetch_php_script/scores.js"></script>
+    <!-- <script type="text/javascript" src="js/fetch_php_script/scores.js"></script> -->
 </body>
 </html>
